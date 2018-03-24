@@ -120,6 +120,7 @@ PlayerTwo = {
     //object to store cards of player two
 }
 
+//variable to store player turn
 Turn = 0;
 
 function Shuflle() {
