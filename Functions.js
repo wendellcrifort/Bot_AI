@@ -129,11 +129,40 @@ function Shuflle() {
 }
 
 function SetPlayersCards() {
-    //set player card
-    //init game
-    //set this card in 'hand' player
-    //add this card in played cards object
-    //remove this card of deck
+    for (i = 0; i < 2; i++) {
+        //get random number to get card in deck
+        var cardNumber = Math.floor(Math.random() * 52 + 1);
+
+        //get card in a specific position un deck
+        var card = JSON.parse(Deck)['' + cardNumber + ''];
+
+        //set player card
+        PlayerOne.push(card);
+
+        //add this card in played cards object
+        PlayedCards.push(card);
+
+        //add points into player hand
+        AddPlayerPoints(1, card);
+    }
+
+    for (i = 0; i < 2; i++) {
+        //get random number to get card in deck
+        var cardNumber = Math.floor(Math.random() * 52 + 1);
+
+        //get card in a specific position un deck
+        var card = JSON.parse(Deck)['' + cardNumber + ''];
+
+        //set player card
+        PlayerTwo.push(card);
+
+        //it is mean that bot is an expert and can see the my 'hand'
+        if (BotLevel == 3)
+            PlayedCards.push(card);
+
+        //add points into player hand
+        AddPlayerPoints(2, card);
+    }
 }
 
 function CalculateProbability() {
@@ -142,15 +171,29 @@ function CalculateProbability() {
 }
 
 function GetCard(Player) {
-    //get random card in deck
-    //set this card in 'hand' player
-    //add this card in played cards object
-    //remove this card of deck
+    //get random number to get card in deck
+    var cardNumber = Math.floor(Math.random() * 52 + 1);
+
+    //get card in a specific position un deck
+    var card = JSON.parse(Deck)['' + cardNumber + ''];
+
+    //set player card
+    if (Player == 1)
+        PlayerOne.push(card);
+
+    if (Player == 2)
+        PlayerOne.push(card);
+
+    //it is mean that bot is an expert and can see the my 'hand'
+    if ((Player == 1 && BotLevel == 3) || Player == 2)
+        PlayedCards.push(card);
+
+    //add points into player hand
+    AddPlayerPoints(player, card);
 }
 
-function SavePlayedCards(card) {
-    //set card in player cars object
-    PlayedCards.push(card);
+function AddPlayerPoints(player, card) {
+
 }
 
 function VerifyLimitPoints(player) {

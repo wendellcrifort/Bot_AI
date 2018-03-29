@@ -1,0 +1,18 @@
+.card-size {
+    display: block;
+    height: 175px;
+}
+
+.card-back {
+    background-image: url("./img/Card_Back.png");
+    /*background-color: aliceblue;*/
+}
+
+.Deck {
+    background-image: url("./img/Card_Back.png");
+}
+
+.Divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
