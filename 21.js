@@ -108,7 +108,7 @@ const DECK = [
    { data: 'K ♠', value: 10 }
 ]
 
-DeckProb = [
+var DeckProb = [
      { data: 'A ♥', value: 1 },
      { data: 'A ♦', value: 1 },
      { data: 'A ♣', value: 1 },
@@ -132,6 +132,8 @@ DeckProb = [
 ]
 
 const minPoints = 16
+const histProb = []
+const results = []
 
 var PlayerOne = {
   cards: [],
@@ -145,36 +147,63 @@ var PlayerTwo = {
   probabilty: 0
 }
 
+function restartDeck () {
+  Deck = DECK
+}
+
 function sortNumber (quantity) {
   return Math.floor(Math.random() * quantity + 1)
 }
 
-function setPlayersCards (player, length, deck, sort, quantity) {
-  for (let i = 0; i < length; i++) {
-    let pos = sort(quantity)
-    console.log(pos);
-      player.cards.push(deck[pos])
-      player.points += deck[pos].value
-      deck.splice(pos, 1)
-  }
-  return player
+function firstPlayer (sort, quantity) {
+  return sort(quantity)
 }
 
 function validatePoints (player) {
   return player.points < minPoints
 }
 
+function incrementProb (key, probabilty) {
+  let prob = []
+      prob.push(localStorage.getItem(key))
+      prob.push(probabilty)
+
+  localStorage.setItem('prob', prob)
+}
+
+function setPlayersCards (player, length, deck, sort, quantity) {
+  for (let i = 0; i < length; i++) {
+    let pos = sort(quantity)
+    player.cards.push(deck[pos])
+    player.points += deck[pos].value
+    deck.splice(pos, 1)
+  }
+  return player
+}
+
 function getCard (player, length, deck, func, quantity) {
   setPlayersCards(player, length, deck, func, quantity)
 }
 
-function robotTurn (player, validate, func, length, deck, sort) {
+function avg (key) {
+  let total = 0
+  let prob = []
+      prob.push(localStorage.getItem(key))
 
+  for (let i = 0; i < prob.length; i++)
+    total += prob[i]
+
+  return total / prob.length
+}
+
+function robotTurn (player, length, deck, sort, quantity) {
   let mark = 21 - player.points
+  let med = 0
+  let bestCase = 0
   let cardsN = []
 
-  while (validate(player))
-    func(player, length, deck, sort, quantity)
+  while (validatePoints(player))
+    getCard(player, length, deck, sort, quantity)
 
   for (let i = 0; i < player.cards.length; i++)
     for (let j = 0; j < DeckProb.length; j++)
@@ -182,21 +211,17 @@ function robotTurn (player, validate, func, length, deck, sort) {
         DeckProb.splice(j, 1)
 
   for (let w = 0; w < DeckProb.length; w++) {
-    if (DeckProb[w].value <= mark) {
+    if (DeckProb[w].value <= mark)
       cardsN.push(DeckProb[w])
-    }
   }
 
-  let percent = cardsN.length / Deck.length
+  let probabilty = cardsN.length / (52 - player.cards.length)
 
-}
+  localStorage.setItem('prob', probabilty)
+  incrementProb('prob', probabilty)
+  med = avg('prob')
 
-function prob () {
-
-}
-
-function restartDeck () {
-  Deck = DECK
+  return probabilty
 }
 
 function comparePoints (player1, player2) {
@@ -215,13 +240,8 @@ function comparePoints (player1, player2) {
   return winner
 }
 
-function firstPlayer (sort, quantity) {
-  return sort(quantity)
-}
-
 function init () {
-  firstPlayer(sortNumber, 1)
-
+  robotTurn()
 }
 
 init()
