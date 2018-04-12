@@ -205,7 +205,7 @@ function avg(key) {
   return total / prob.length
 }
 
-function robotTurn(player, length, deck, sort, quantity) {
+function robotTurn(player, length, deck, sort, quantity) {  
   let mark = 21 - player.points
   let med = 0
   let bestCase = 0
@@ -228,6 +228,12 @@ function robotTurn(player, length, deck, sort, quantity) {
 
   incrementProb('prob', probabilty)
   med = avg('prob')
+  
+  console.log("media " + med)
+  console.log("Chance " + probabilty)
+
+  //não estou entendendo, ele ta pegando carta mesmo que passe de 21 pontos.
+  //To na duvida se ta pagando de 2 em 2
 
   if (probabilty >= med) {
     getCard(player, length, deck, sort, quantity)
