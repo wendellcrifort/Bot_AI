@@ -175,10 +175,16 @@ function incrementProb(key, probabilty) {
 
 function setPlayersCards(player, length, deck, sort, quantity) {
   for (let i = 0; i < length; i++) {
-    let pos = sort(quantity)
-    player.cards.push(deck[pos])
-    player.points += deck[pos].value
-    deck.splice(pos, 1)
+    try {
+      //pode dar um erro quando tenta pegar uma 'pos' que nn existe no deck
+      let pos = sort(quantity)
+      player.cards.push(deck[pos])
+      player.points += deck[pos].value
+      deck.splice(pos, 1)
+    }
+    catch (ex) {
+      i--;
+    }
   }
   return player
 }
@@ -189,11 +195,12 @@ function getCard(player, length, deck, func, quantity) {
 
 function avg(key) {
   let total = 0
-  let prob = []
-  prob.push(localStorage.getItem(key))
+  let prob
+  prob = (localStorage.getItem(key).split(','))
 
-  for (let i = 0; i < prob.length; i++)
-    total += prob[i]
+  for (let i = 0; i < prob.length; i++) {
+    total += prob[i] * 1
+  }
 
   return total / prob.length
 }
@@ -219,7 +226,6 @@ function robotTurn(player, length, deck, sort, quantity) {
 
   let probabilty = cardsN.length / (52 - player.cards.length)
 
-  localStorage.setItem('prob', probabilty)
   incrementProb('prob', probabilty)
   med = avg('prob')
 
@@ -227,7 +233,7 @@ function robotTurn(player, length, deck, sort, quantity) {
     getCard(player, length, deck, sort, quantity)
     robotTurn(player, length, deck, sort, quantity)
   }
-  
+
   if (firstPlayerNumber == 1) {
     comparePoints(PlayerOne, player2)
   }
@@ -237,10 +243,10 @@ function robotTurn(player, length, deck, sort, quantity) {
 }
 
 function humanTurn(player, length, deck, sort, quantity) {
-  
+
   getCard(PlayerOne, 1, Deck, sortNumber, 52)
 
-  if(!validatePoints(player)){
+  if (!validatePoints(player)) {
     //unlock stop button
   }
 }
@@ -262,7 +268,7 @@ function comparePoints(player1, player2) {
 }
 
 function init() {
-  let playerone = firstPlayer(sortNumber, 2)
+  let playerone = 2//firstPlayer(sortNumber, 2)
 
   setPlayersCards(PlayerOne, 2, Deck, sortNumber, 52)
   setPlayersCards(PlayerTwo, 2, Deck, sortNumber, 52)
