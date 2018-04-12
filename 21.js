@@ -1,139 +1,141 @@
 Deck = [
-   { data: 'A ♥', value: 1 },
-   { data: 'A ♦', value: 1 },
-   { data: 'A ♣', value: 1 },
-   { data: 'A ♠', value: 1 },
-   { data: '2 ♥', value: 2 },
-   { data: '2 ♦', value: 2 },
-   { data: '2 ♣', value: 2 },
-   { data: '2 ♠', value: 2 },
-   { data: '3 ♥', value: 3 },
-   { data: '3 ♦', value: 3 },
-   { data: '3 ♣', value: 3 },
-   { data: '3 ♠', value: 3 },
-   { data: '4 ♥', value: 4 },
-   { data: '4 ♦', value: 4 },
-   { data: '4 ♣', value: 4 },
-   { data: '4 ♠', value: 4 },
-   { data: '5 ♥', value: 5 },
-   { data: '5 ♦', value: 5 },
-   { data: '5 ♣', value: 5 },
-   { data: '5 ♠', value: 5 },
-   { data: '6 ♥', value: 6 },
-   { data: '6 ♦', value: 6 },
-   { data: '6 ♣', value: 6 },
-   { data: '6 ♠', value: 6 },
-   { data: '7 ♥', value: 7 },
-   { data: '7 ♦', value: 7 },
-   { data: '7 ♣', value: 7 },
-   { data: '7 ♠', value: 7 },
-   { data: '8 ♥', value: 8 },
-   { data: '8 ♦', value: 8 },
-   { data: '8 ♣', value: 8 },
-   { data: '8 ♠', value: 8 },
-   { data: '9 ♥', value: 9 },
-   { data: '9 ♦', value: 9 },
-   { data: '9 ♣', value: 9 },
-   { data: '9 ♠', value: 9 },
-   { data: '10 ♥', value: 10 },
-   { data: '10 ♦', value: 10 },
-   { data: '10 ♣', value: 10 },
-   { data: '10 ♠', value: 10 },
-   { data: 'J ♥', value: 10 },
-   { data: 'J ♦', value: 10 },
-   { data: 'J ♣', value: 10 },
-   { data: 'J ♠', value: 10 },
-   { data: 'Q ♥', value: 10 },
-   { data: 'Q ♦', value: 10 },
-   { data: 'Q ♣', value: 10 },
-   { data: 'Q ♠', value: 10 },
-   { data: 'K ♥', value: 10 },
-   { data: 'K ♦', value: 10 },
-   { data: 'K ♣', value: 10 },
-   { data: 'K ♠', value: 10 }
+  { data: 'A ♥', value: 1 },
+  { data: 'A ♦', value: 1 },
+  { data: 'A ♣', value: 1 },
+  { data: 'A ♠', value: 1 },
+  { data: '2 ♥', value: 2 },
+  { data: '2 ♦', value: 2 },
+  { data: '2 ♣', value: 2 },
+  { data: '2 ♠', value: 2 },
+  { data: '3 ♥', value: 3 },
+  { data: '3 ♦', value: 3 },
+  { data: '3 ♣', value: 3 },
+  { data: '3 ♠', value: 3 },
+  { data: '4 ♥', value: 4 },
+  { data: '4 ♦', value: 4 },
+  { data: '4 ♣', value: 4 },
+  { data: '4 ♠', value: 4 },
+  { data: '5 ♥', value: 5 },
+  { data: '5 ♦', value: 5 },
+  { data: '5 ♣', value: 5 },
+  { data: '5 ♠', value: 5 },
+  { data: '6 ♥', value: 6 },
+  { data: '6 ♦', value: 6 },
+  { data: '6 ♣', value: 6 },
+  { data: '6 ♠', value: 6 },
+  { data: '7 ♥', value: 7 },
+  { data: '7 ♦', value: 7 },
+  { data: '7 ♣', value: 7 },
+  { data: '7 ♠', value: 7 },
+  { data: '8 ♥', value: 8 },
+  { data: '8 ♦', value: 8 },
+  { data: '8 ♣', value: 8 },
+  { data: '8 ♠', value: 8 },
+  { data: '9 ♥', value: 9 },
+  { data: '9 ♦', value: 9 },
+  { data: '9 ♣', value: 9 },
+  { data: '9 ♠', value: 9 },
+  { data: '10 ♥', value: 10 },
+  { data: '10 ♦', value: 10 },
+  { data: '10 ♣', value: 10 },
+  { data: '10 ♠', value: 10 },
+  { data: 'J ♥', value: 10 },
+  { data: 'J ♦', value: 10 },
+  { data: 'J ♣', value: 10 },
+  { data: 'J ♠', value: 10 },
+  { data: 'Q ♥', value: 10 },
+  { data: 'Q ♦', value: 10 },
+  { data: 'Q ♣', value: 10 },
+  { data: 'Q ♠', value: 10 },
+  { data: 'K ♥', value: 10 },
+  { data: 'K ♦', value: 10 },
+  { data: 'K ♣', value: 10 },
+  { data: 'K ♠', value: 10 }
 ]
 
 const DECK = [
-   { data: 'A ♥', value: 1 },
-   { data: 'A ♦', value: 1 },
-   { data: 'A ♣', value: 1 },
-   { data: 'A ♠', value: 1 },
-   { data: '2 ♥', value: 2 },
-   { data: '2 ♦', value: 2 },
-   { data: '2 ♣', value: 2 },
-   { data: '2 ♠', value: 2 },
-   { data: '3 ♥', value: 3 },
-   { data: '3 ♦', value: 3 },
-   { data: '3 ♣', value: 3 },
-   { data: '3 ♠', value: 3 },
-   { data: '4 ♥', value: 4 },
-   { data: '4 ♦', value: 4 },
-   { data: '4 ♣', value: 4 },
-   { data: '4 ♠', value: 4 },
-   { data: '5 ♥', value: 5 },
-   { data: '5 ♦', value: 5 },
-   { data: '5 ♣', value: 5 },
-   { data: '5 ♠', value: 5 },
-   { data: '6 ♥', value: 6 },
-   { data: '6 ♦', value: 6 },
-   { data: '6 ♣', value: 6 },
-   { data: '6 ♠', value: 6 },
-   { data: '7 ♥', value: 7 },
-   { data: '7 ♦', value: 7 },
-   { data: '7 ♣', value: 7 },
-   { data: '7 ♠', value: 7 },
-   { data: '8 ♥', value: 8 },
-   { data: '8 ♦', value: 8 },
-   { data: '8 ♣', value: 8 },
-   { data: '8 ♠', value: 8 },
-   { data: '9 ♥', value: 9 },
-   { data: '9 ♦', value: 9 },
-   { data: '9 ♣', value: 9 },
-   { data: '9 ♠', value: 9 },
-   { data: '10 ♥', value: 10 },
-   { data: '10 ♦', value: 10 },
-   { data: '10 ♣', value: 10 },
-   { data: '10 ♠', value: 10 },
-   { data: 'J ♥', value: 10 },
-   { data: 'J ♦', value: 10 },
-   { data: 'J ♣', value: 10 },
-   { data: 'J ♠', value: 10 },
-   { data: 'Q ♥', value: 10 },
-   { data: 'Q ♦', value: 10 },
-   { data: 'Q ♣', value: 10 },
-   { data: 'Q ♠', value: 10 },
-   { data: 'K ♥', value: 10 },
-   { data: 'K ♦', value: 10 },
-   { data: 'K ♣', value: 10 },
-   { data: 'K ♠', value: 10 }
+  { data: 'A ♥', value: 1 },
+  { data: 'A ♦', value: 1 },
+  { data: 'A ♣', value: 1 },
+  { data: 'A ♠', value: 1 },
+  { data: '2 ♥', value: 2 },
+  { data: '2 ♦', value: 2 },
+  { data: '2 ♣', value: 2 },
+  { data: '2 ♠', value: 2 },
+  { data: '3 ♥', value: 3 },
+  { data: '3 ♦', value: 3 },
+  { data: '3 ♣', value: 3 },
+  { data: '3 ♠', value: 3 },
+  { data: '4 ♥', value: 4 },
+  { data: '4 ♦', value: 4 },
+  { data: '4 ♣', value: 4 },
+  { data: '4 ♠', value: 4 },
+  { data: '5 ♥', value: 5 },
+  { data: '5 ♦', value: 5 },
+  { data: '5 ♣', value: 5 },
+  { data: '5 ♠', value: 5 },
+  { data: '6 ♥', value: 6 },
+  { data: '6 ♦', value: 6 },
+  { data: '6 ♣', value: 6 },
+  { data: '6 ♠', value: 6 },
+  { data: '7 ♥', value: 7 },
+  { data: '7 ♦', value: 7 },
+  { data: '7 ♣', value: 7 },
+  { data: '7 ♠', value: 7 },
+  { data: '8 ♥', value: 8 },
+  { data: '8 ♦', value: 8 },
+  { data: '8 ♣', value: 8 },
+  { data: '8 ♠', value: 8 },
+  { data: '9 ♥', value: 9 },
+  { data: '9 ♦', value: 9 },
+  { data: '9 ♣', value: 9 },
+  { data: '9 ♠', value: 9 },
+  { data: '10 ♥', value: 10 },
+  { data: '10 ♦', value: 10 },
+  { data: '10 ♣', value: 10 },
+  { data: '10 ♠', value: 10 },
+  { data: 'J ♥', value: 10 },
+  { data: 'J ♦', value: 10 },
+  { data: 'J ♣', value: 10 },
+  { data: 'J ♠', value: 10 },
+  { data: 'Q ♥', value: 10 },
+  { data: 'Q ♦', value: 10 },
+  { data: 'Q ♣', value: 10 },
+  { data: 'Q ♠', value: 10 },
+  { data: 'K ♥', value: 10 },
+  { data: 'K ♦', value: 10 },
+  { data: 'K ♣', value: 10 },
+  { data: 'K ♠', value: 10 }
 ]
 
 var DeckProb = [
-     { data: 'A ♥', value: 1 },
-     { data: 'A ♦', value: 1 },
-     { data: 'A ♣', value: 1 },
-     { data: 'A ♠', value: 1 },
-     { data: '2 ♥', value: 2 },
-     { data: '2 ♦', value: 2 },
-     { data: '2 ♣', value: 2 },
-     { data: '2 ♠', value: 2 },
-     { data: '3 ♥', value: 3 },
-     { data: '3 ♦', value: 3 },
-     { data: '3 ♣', value: 3 },
-     { data: '3 ♠', value: 3 },
-     { data: '4 ♥', value: 4 },
-     { data: '4 ♦', value: 4 },
-     { data: '4 ♣', value: 4 },
-     { data: '4 ♠', value: 4 },
-     { data: '5 ♥', value: 5 },
-     { data: '5 ♦', value: 5 },
-     { data: '5 ♣', value: 5 },
-     { data: '5 ♠', value: 5 }
+  { data: 'A ♥', value: 1 },
+  { data: 'A ♦', value: 1 },
+  { data: 'A ♣', value: 1 },
+  { data: 'A ♠', value: 1 },
+  { data: '2 ♥', value: 2 },
+  { data: '2 ♦', value: 2 },
+  { data: '2 ♣', value: 2 },
+  { data: '2 ♠', value: 2 },
+  { data: '3 ♥', value: 3 },
+  { data: '3 ♦', value: 3 },
+  { data: '3 ♣', value: 3 },
+  { data: '3 ♠', value: 3 },
+  { data: '4 ♥', value: 4 },
+  { data: '4 ♦', value: 4 },
+  { data: '4 ♣', value: 4 },
+  { data: '4 ♠', value: 4 },
+  { data: '5 ♥', value: 5 },
+  { data: '5 ♦', value: 5 },
+  { data: '5 ♣', value: 5 },
+  { data: '5 ♠', value: 5 }
 ]
 
 const minPoints = 16
 const histProb = []
 const results = []
+
+var firstPlayerNumber = 0;
 
 var PlayerOne = {
   cards: [],
@@ -147,31 +149,31 @@ var PlayerTwo = {
   probabilty: 0
 }
 
-function restartDeck () {
+function restartDeck() {
   Deck = DECK
 }
 
-function sortNumber (quantity) {
+function sortNumber(quantity) {
   return Math.floor(Math.random() * quantity + 1)
 }
 
-function firstPlayer (sort, quantity) {
+function firstPlayer(sort, quantity) {
   return sort(quantity)
 }
 
-function validatePoints (player) {
+function validatePoints(player) {
   return player.points < minPoints
 }
 
-function incrementProb (key, probabilty) {
+function incrementProb(key, probabilty) {
   let prob = []
-      prob.push(localStorage.getItem(key))
-      prob.push(probabilty)
+  prob.push(localStorage.getItem(key))
+  prob.push(probabilty)
 
   localStorage.setItem('prob', prob)
 }
 
-function setPlayersCards (player, length, deck, sort, quantity) {
+function setPlayersCards(player, length, deck, sort, quantity) {
   for (let i = 0; i < length; i++) {
     let pos = sort(quantity)
     player.cards.push(deck[pos])
@@ -181,14 +183,14 @@ function setPlayersCards (player, length, deck, sort, quantity) {
   return player
 }
 
-function getCard (player, length, deck, func, quantity) {
+function getCard(player, length, deck, func, quantity) {
   setPlayersCards(player, length, deck, func, quantity)
 }
 
-function avg (key) {
+function avg(key) {
   let total = 0
   let prob = []
-      prob.push(localStorage.getItem(key))
+  prob.push(localStorage.getItem(key))
 
   for (let i = 0; i < prob.length; i++)
     total += prob[i]
@@ -196,7 +198,7 @@ function avg (key) {
   return total / prob.length
 }
 
-function robotTurn (player, length, deck, sort, quantity) {
+function robotTurn(player, length, deck, sort, quantity) {
   let mark = 21 - player.points
   let med = 0
   let bestCase = 0
@@ -221,14 +223,25 @@ function robotTurn (player, length, deck, sort, quantity) {
   incrementProb('prob', probabilty)
   med = avg('prob')
 
-  return probabilty
+  if (probabilty >= med) {
+    getCard(player, length, deck, sort, quantity)
+    robotTurn(player, length, deck, sort, quantity)
+  }
+
+  //if the robot equals player two, compare and finalize game, else, human turn.
+  if (firstPlayerNumber == 1) {
+    comparePoints(PlayerOne, player2)
+  }
+  else {
+    //liberar a jogada do humano
+  }
 }
 
-function comparePoints (player1, player2) {
+function comparePoints(player1, player2) {
   let winner
   if (player1.points > 21 && player2.points > 21 || player1.points === player2.points) {
     winner = 0
-  }  else if (player1.points > 21) {
+  } else if (player1.points > 21) {
     winner = 2
   } else if (player2.points > 21) {
     winner = 1
@@ -240,8 +253,8 @@ function comparePoints (player1, player2) {
   return winner
 }
 
-function init () {
-  robotTurn()
+function init() {
+
 }
 
 init()
