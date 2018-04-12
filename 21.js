@@ -227,13 +227,21 @@ function robotTurn(player, length, deck, sort, quantity) {
     getCard(player, length, deck, sort, quantity)
     robotTurn(player, length, deck, sort, quantity)
   }
-
-  //if the robot equals player two, compare and finalize game, else, human turn.
+  
   if (firstPlayerNumber == 1) {
     comparePoints(PlayerOne, player2)
   }
   else {
-    //liberar a jogada do humano
+    //unlock buttons to human player  
+  }
+}
+
+function humanTurn(player, length, deck, sort, quantity) {
+  
+  getCard(PlayerOne, 1, Deck, sortNumber, 52)
+
+  if(!validatePoints(player)){
+    //unlock stop button
   }
 }
 
@@ -254,7 +262,17 @@ function comparePoints(player1, player2) {
 }
 
 function init() {
+  let playerone = firstPlayer(sortNumber, 2)
 
+  setPlayersCards(PlayerOne, 2, Deck, sortNumber, 52)
+  setPlayersCards(PlayerTwo, 2, Deck, sortNumber, 52)
+
+  if (playerone == 2)
+    robotTurn(PlayerTwo, 1, Deck, sortNumber, 52)
+
+  else {
+    //unlock buttons to human player    
+  }
 }
 
 init()
