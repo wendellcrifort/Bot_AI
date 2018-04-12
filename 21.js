@@ -138,12 +138,14 @@ const results = []
 var firstPlayerNumber = 0;
 
 var PlayerOne = {
+  id: 'P1',
   cards: [],
   points: 0,
   probabilty: 0
 }
 
 var PlayerTwo = {
+  id: 'P2',
   cards: [],
   points: 0,
   probabilty: 0
@@ -151,6 +153,13 @@ var PlayerTwo = {
 
 function restartDeck() {
   Deck = DECK
+}
+
+function resetPlayer (player) {
+  player.points = 0
+  player.cards = []
+  restartDeck()
+  init()
 }
 
 function sortNumber(quantity) {
@@ -173,6 +182,26 @@ function incrementProb(key, probabilty) {
   localStorage.setItem('prob', prob)
 }
 
+function write (id, obj, end) {
+  let s = ''
+  for (var i = 0; i < obj.cards.length; i++) {
+    if (obj.id == 'P1' && !end ) {
+      console.log(`teste`);
+      s += '| X'
+    } else {
+      console.log(`teste 2`);
+      s += '| ' + obj.cards[i].data
+    }
+  }
+
+  if (obj.id == 'P1' && !end) {
+    document.getElementById(id).innerHTML = s + '|  Pontos: x '
+  } else {
+    document.getElementById(id).innerHTML = s + '|  Pontos: ' + obj.points
+  }
+
+}
+
 function setPlayersCards(player, length, deck, sort, quantity) {
   for (let i = 0; i < length; i++) {
     try {
@@ -183,7 +212,7 @@ function setPlayersCards(player, length, deck, sort, quantity) {
       deck.splice(pos, 1)
     }
     catch (ex) {
-      i--;
+      i--
     }
   }
   return player
@@ -205,56 +234,44 @@ function avg(key) {
   return total / prob.length
 }
 
-function robotTurn(player, length, deck, sort, quantity) {  
-  let mark = 21 - player.points
-  let med = 0
-  let bestCase = 0
+function robotTurn(player, length, deck, sort, quantity) {
+  let mark
+  let med
   let cardsN = []
 
-  while (validatePoints(player))
+  while (validatePoints(player)) {
     getCard(player, length, deck, sort, quantity)
+  }
 
   for (let i = 0; i < player.cards.length; i++)
     for (let j = 0; j < DeckProb.length; j++)
       if (DeckProb[j] == player.cards[i])
         DeckProb.splice(j, 1)
 
-  for (let w = 0; w < DeckProb.length; w++) {
+  mark = 21 - player.points
+
+  for (let w = 0; w < DeckProb.length; w++)
     if (DeckProb[w].value <= mark)
       cardsN.push(DeckProb[w])
-  }
 
   let probabilty = cardsN.length / (52 - player.cards.length)
 
   incrementProb('prob', probabilty)
   med = avg('prob')
-  
-  console.log("media " + med)
-  console.log("Chance " + probabilty)
-
-  //não estou entendendo, ele ta pegando carta mesmo que passe de 21 pontos.
-  //To na duvida se ta pagando de 2 em 2
 
   if (probabilty >= med) {
     getCard(player, length, deck, sort, quantity)
     robotTurn(player, length, deck, sort, quantity)
   }
 
-  if (firstPlayerNumber == 1) {
-    comparePoints(PlayerOne, player2)
-  }
-  else {
-    //unlock buttons to human player  
-  }
+  document.getElementById('play').disabled = false
+
 }
 
-function humanTurn(player, length, deck, sort, quantity) {
-
-  getCard(PlayerOne, 1, Deck, sortNumber, 52)
-
-  if (!validatePoints(player)) {
-    //unlock stop button
-  }
+function humanTurn(id) {
+  getCard(PlayerTwo, 1, Deck, sortNumber, Deck.length)
+  write('player2', PlayerTwo, true)
+  document.getElementById(id).disabled = validatePoints(PlayerTwo)
 }
 
 function comparePoints(player1, player2) {
@@ -265,26 +282,29 @@ function comparePoints(player1, player2) {
     winner = 2
   } else if (player2.points > 21) {
     winner = 1
-  } else if (plyer1.points > player2.points) {
+  } else if (player1.points > player2.points) {
     winner = 1
   } else {
     winner = 2
   }
+
+  write('player1', player1, true)
+  write('player2', player2, true)
+
+  document.getElementById('winner').innerHTML = 'teste'
+
+
   return winner
 }
 
-function init() {
-  let playerone = 2//firstPlayer(sortNumber, 2)
 
+
+function init () {
   setPlayersCards(PlayerOne, 2, Deck, sortNumber, 52)
   setPlayersCards(PlayerTwo, 2, Deck, sortNumber, 52)
 
-  if (playerone == 2)
-    robotTurn(PlayerTwo, 1, Deck, sortNumber, 52)
+  robotTurn(PlayerOne, 1, Deck, sortNumber, Deck.length)
 
-  else {
-    //unlock buttons to human player    
-  }
+  write('player1', PlayerOne, false)
+  write('player2', PlayerTwo, false)
 }
-
-init()
